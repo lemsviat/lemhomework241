@@ -3,4 +3,6 @@
 .idea
 .gradle
 target
+out
 /out/artifacts/lemhomework241_war_exploded/
+
