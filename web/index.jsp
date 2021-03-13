@@ -13,25 +13,24 @@
 <body>
 <%-- This is starting page for module 2.4!--%>
 <!-- header -->
-<div style="text-align: center; color: blue">
+<div style="text-align: center; color: blue; background-color: bisque">
     <div>
         <h2>First REST application</h2>
     </div>
 
     <div>       <!-- content -->
-        <div>    <!-- buttons holder -->
+       <%-- <div>    <!-- buttons holder -->
             <button onclick="location.href='/list'">List users</button>
             <button onclick="location.href='/add'">Add user</button>
-            <button onclick="location.href='/math?id=5'">Id</button>
-        </div>
-        <br><br>
-        <form action="hello" method="POST">
+        </div>--%>
+<%--        <br><br>--%>
+        <form action="${pageContext.request.contextPath}/getCustomer" method="POST">
             Name: <label>
             <input name="username"/>
         </label>
             <br><br>
-
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Get Customer(s)"/>
+            <br><br>
         </form>
     </div>
 </div>
