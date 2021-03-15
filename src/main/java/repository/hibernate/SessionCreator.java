@@ -23,7 +23,7 @@ public class SessionCreator {
                     .addAnnotatedClass(Specialty.class)
                     .buildSessionFactory();
         }
-        System.out.println("SessionFactory created");
+        System.out.println("Session created");
         session = factory.getCurrentSession();
         return session;
     }

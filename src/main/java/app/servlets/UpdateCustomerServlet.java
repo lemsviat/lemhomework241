@@ -1,6 +1,7 @@
 package app.servlets;
 
 import controller.CustomerController;
+import model.Account;
 import model.Customer;
 
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
-@WebServlet("/getCustomer")
-public class GetCustomerServlet extends HttpServlet {
-
+@WebServlet("/updateCustomer")
+public class UpdateCustomerServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -20,11 +20,17 @@ public class GetCustomerServlet extends HttpServlet {
 
         try (PrintWriter writer = response.getWriter()) {
             String customerName = request.getParameter("username");
+            String customerNewAccountValue = request.getParameter("accountValue");
+
             CustomerController customerController = new CustomerController();
             for (Customer customer : customerController.readCustomer(customerName)) {
-                writer.println("<h3>Customer`s ID: " + customer.getId() + "</h3>");
-                writer.println("<h3>Customer`s Name: " + customer.getName() + "</h3>");
-                writer.println("<h3>Account: " + customer.getAccount() + "</h3>");
+
+                Account account = customer.getAccount();
+                account.setAccountValue(customer.getAccount().getAccountValue() + Long.parseLong(customerNewAccountValue));
+
+                customerController.updateCustomer(customer);
+                writer.println("<h3>Customer with name: " + customer.getName() + " was updated in DB</h3>");
+                writer.println("<h3>New Account value: " + customer.getAccount().getAccountValue() + "</h3>");
                 writer.println("<h3>Specialities: " + customer.getSpecialties() + "</h3>");
             }
 

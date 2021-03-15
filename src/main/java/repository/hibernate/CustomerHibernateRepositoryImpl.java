@@ -45,6 +45,9 @@ public class CustomerHibernateRepositoryImpl implements CustomerRepository {
         try (Session session = SessionCreator.getSession()) {
             session.beginTransaction();
             Account account = customer.getAccount();
+            if(CustomerView.customerChangeAccountValue ==null)
+            account.setAccountValue(customer.getAccount().getAccountValue());
+            else
             account.setAccountValue(customer.getAccount().getAccountValue() + CustomerView.customerChangeAccountValue);
             session.update(customer);
             session.getTransaction().commit();
