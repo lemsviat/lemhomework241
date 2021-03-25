@@ -21,7 +21,7 @@
     </div>
 
     <div>
-        <form action="${pageContext.request.contextPath}/addCustomer" method="POST">
+        <form action="${pageContext.request.contextPath}customers" method="POST">
             Name: <label>
             <input name="username"/>
         </label>
@@ -50,7 +50,7 @@
     </div>
 
     <div>
-        <form action="${pageContext.request.contextPath}/getCustomer" method="POST">
+        <form action="${pageContext.request.contextPath}customers" method="GET">
             Name: <label>
             <input name="username"/>
         </label>
@@ -67,7 +67,8 @@
     </div>
 
     <div>
-        <form action="${pageContext.request.contextPath}/updateCustomer" method="POST">
+        <form action="${pageContext.request.contextPath}customers" method="POST">
+            <input type="hidden" name="action" value="put"/>
             Name: <label>
             <input name="username"/>
         </label>
@@ -76,7 +77,7 @@
             <input name="accountValue"/>
         </label>
             <br><br>
-            <input type="submit" value="Upgate Customer"/>
+            <input type="submit" value="Update Customer"/>
             <br><br>
         </form>
     </div>
@@ -88,9 +89,10 @@
     </div>
 
     <div>
-        <form action="${pageContext.request.contextPath}/deleteCustomer" method="POST">
+        <form action="${pageContext.request.contextPath}customers" method="POST">
+            <input type="hidden" name="action" value="delete"/>
             Name: <label>
-            <input name="username"/>
+            <input name="username" id="userName"/>
         </label>
             <br><br>
             <input type="submit" value="Delete Customer"/>
@@ -101,3 +103,4 @@
 
 </body>
 </html>
+
