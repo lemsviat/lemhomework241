@@ -34,9 +34,19 @@ public class AccountServlet extends HttpServlet {
 
                 freeAccount.setAccountValue(Long.parseLong(freeAccountValue));
                 switch (Integer.parseInt(freeAccountStatus)) {
-                    case (1) -> freeAccount.setAccountStatus(AccountStatus.ACTIVE);
+                    case (1):
+                        freeAccount.setAccountStatus(AccountStatus.ACTIVE);
+                        break;
+                    case (2):
+                        freeAccount.setAccountStatus(AccountStatus.BANNED);
+                        break;
+                    case (3):
+                        freeAccount.setAccountStatus(AccountStatus.DELETED);
+                        break;
+
+                   /* case (1) -> freeAccount.setAccountStatus(AccountStatus.ACTIVE);
                     case (2) -> freeAccount.setAccountStatus(AccountStatus.BANNED);
-                    case (3) -> freeAccount.setAccountStatus(AccountStatus.DELETED);
+                    case (3) -> freeAccount.setAccountStatus(AccountStatus.DELETED);*/
                 }
 
 
@@ -99,9 +109,20 @@ public class AccountServlet extends HttpServlet {
                 account.setAccountValue(account.getAccountValue() + Long.parseLong(newAccountValue));
 
                 switch (Integer.parseInt(newAccountStatus)) {
+
+                    case (1):
+                        account.setAccountStatus(AccountStatus.ACTIVE);
+                        break;
+                    case (2):
+                        account.setAccountStatus(AccountStatus.BANNED);
+                        break;
+                    case (3):
+                        account.setAccountStatus(AccountStatus.DELETED);
+                        break;
+                  /*
                     case (1) -> account.setAccountStatus(AccountStatus.ACTIVE);
                     case (2) -> account.setAccountStatus(AccountStatus.BANNED);
-                    case (3) -> account.setAccountStatus(AccountStatus.DELETED);
+                    case (3) -> account.setAccountStatus(AccountStatus.DELETED);*/
                 }
 
                 accountController.updateAccount(account);

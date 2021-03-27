@@ -45,9 +45,19 @@ public class CustomersServlet extends HttpServlet {
 
                 customerAccount.setAccountValue(Long.parseLong(customerAccountValue));
                 switch (Integer.parseInt(customerAccountStatus)) {
-                    case (1) -> customerAccount.setAccountStatus(AccountStatus.ACTIVE);
+
+                    case (1):
+                        customerAccount.setAccountStatus(AccountStatus.ACTIVE);
+                        break;
+                    case (2):
+                        customerAccount.setAccountStatus(AccountStatus.BANNED);
+                        break;
+                    case (3):
+                        customerAccount.setAccountStatus(AccountStatus.DELETED);
+                        break;
+                   /* case (1) -> customerAccount.setAccountStatus(AccountStatus.ACTIVE);
                     case (2) -> customerAccount.setAccountStatus(AccountStatus.BANNED);
-                    case (3) -> customerAccount.setAccountStatus(AccountStatus.DELETED);
+                    case (3) -> customerAccount.setAccountStatus(AccountStatus.DELETED);*/
                 }
 
                 specialtySet.add(new Specialty(customerSpecialities));
