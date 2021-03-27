@@ -33,6 +33,7 @@ public class CustomerHibernateRepositoryImpl implements CustomerRepository {
             listOfCustomers = query.getResultList();
             session.getTransaction().commit();
 
+
         } catch (IllegalArgumentException e) {
             System.out.println("Customer not found!");
             e.printStackTrace();

@@ -1,0 +1,26 @@
+
+.main {
+    height: 80%;
+}
+
+.container {
+    background: #425b9c;
+    text-align: center;
+}
+.row-1 {
+    color: forestgreen;
+    vertical-align: top;
+    display: inline-block;
+}
+.row-2 {
+    color: blue;
+    vertical-align: top;
+    padding-left: 3%;
+    display: inline-block;
+}
+.row-3 {
+    color: chocolate;
+    vertical-align: top;
+    padding-left: 3%;
+    display: inline-block;
+}

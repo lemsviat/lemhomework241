@@ -86,6 +86,8 @@ public class CustomersServlet extends HttpServlet {
                 writer.println("<h3>Account: " + customer.getAccount() + "</h3>");
                 writer.println("<h3>Specialities: " + customer.getSpecialties() + "</h3>");
             }
+            if (customerController.readCustomer(customerName).isEmpty())
+                writer.println("<h3>Sorry, customer with name: '" + customerName +"' not found in the database!</h3>");
 
         } catch (Exception e) {
             System.out.println("Can`t work");
@@ -113,6 +115,8 @@ public class CustomersServlet extends HttpServlet {
                 writer.println("<h3>New Account value: " + customer.getAccount().getAccountValue() + "</h3>");
                 writer.println("<h3>Specialities: " + customer.getSpecialties() + "</h3>");
             }
+            if (customerController.readCustomer(customerName).isEmpty())
+                writer.println("<h3>Sorry, customer with name: '" + customerName +"' not found in the database!</h3>");
 
         } catch (Exception e) {
             System.out.println("Can`t work");
@@ -128,6 +132,8 @@ public class CustomersServlet extends HttpServlet {
         try (PrintWriter writer = response.getWriter()) {
             String customerName = request.getParameter("username");
             CustomerController customerController = new CustomerController();
+            if (customerController.readCustomer(customerName).isEmpty())
+                writer.println("<h3>Sorry, customer with name: '" + customerName +"' not found in the database!</h3>");
             for (Customer customer : customerController.readCustomer(customerName)) {
                 customerController.deleteCustomer(customer);
                 writer.println("<h3>Customer with name: " + customer.getName() + " was deleted from DB</h3>");
